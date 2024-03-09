@@ -10,4 +10,3 @@
 ### Project Details
 
 An interactive daily planner, with a weather plug-in to ensure you're always prepared.
-
