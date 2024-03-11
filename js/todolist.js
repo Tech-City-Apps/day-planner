@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     todoList.forEach((task, index) => {
       const taskItem = document.createElement('li');
-      taskItem.textContent = `${task.title} - Due: ${task.dueDate}`;
+      taskItem.textContent = `${task.title} - ${task.description} - Due: ${task.dueDate}`;
       if (task.status === 'Completed') {
         taskItem.style.textDecoration = 'line-through';
       }

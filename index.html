@@ -2,33 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook Entry Page</title>
     <link rel="stylesheet" href="./css/index.css">
-    <script src="./js/todolist.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-          <h1>Day Planner</h1>
-        </header>
-        <div class="layout">
-          <div class="dlist">
-            <form id="taskForm">
-                <input type="text" id="title" placeholder="Title" required>
-                <input type="text" id="description" placeholder="Description">
-                <input type="date" id="dueDate" required>
-                <button type="submit">Add Task</button>
-                <button type="button" id="clearListButton">Clear List</button>
-                <button type="button" id="undoLastEntryButton">Undo Last Entry</button>
-            </form>
-          </div>
-          <div class="notebook">
+  <div class="notebook" onclick="flipNotebook()">
+    <div class="notebook-inner">
+        <div class="cover">
+            <!-- Cover content here -->
+        </div>
+       
+    </div>
+</div>
 
-            <ul id="taskList"></ul>
-        </div>
-          <div class="plugin">Plugin</div>
-          <div class="footer"><p>&copy; 2024 Tech City Apps. All rights reserved.</p></div>
-        </div>
-      </div>
+
+    <script src="./js/lock.js"></script>
 </body>
 </html>

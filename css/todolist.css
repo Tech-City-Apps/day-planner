@@ -1,0 +1,58 @@
+.layout {
+  margin: 0 auto;
+  width: 960px;
+  height: 768px;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  justify-content: space-between; /* Adjust as needed */
+  gap: 2px;
+}
+h1 {
+  text-align: center;
+}
+.header {
+  margin:  20 auto;
+}
+.dlist {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  border-radius: 8px; /* Border radius for rounded corners, adjust as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow with opacity */
+}
+.notebook {
+  border: 2px solid black; /* Temporarily added for visibility */
+  padding: 20px;
+  width: 450px;
+  height: auto; /* Change from a fixed height to accommodate content */
+  overflow-y: auto; /* Ensures content can scroll */
+}
+
+#taskList {
+  padding-left: 0; /* Removes default padding */
+}
+
+
+
+.plugin {
+  display: flex;
+  flex-direction: row;
+  width: 200px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  border-radius: 8px; /* Border radius for rounded corners, adjust as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow with opacity */
+}
+.footer {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  width: 40%; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  border-radius: 8px; /* Border radius for rounded corners, adjust as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow with opacity */
+    }
