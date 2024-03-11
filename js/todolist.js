@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function refreshTaskListDisplay() {
-    const taskListElement = document.getElementById('taskList');
+    let taskListElement = document.getElementById('taskList');
     taskListElement.innerHTML = ''; // Clear existing tasks display
 
     todoList.forEach((task, index) => {
-      const taskItem = document.createElement('li');
+      let taskItem = document.createElement('li');
       taskItem.textContent = `${task.title} - ${task.description} - Due: ${task.dueDate}`;
       if (task.status === 'Completed') {
         taskItem.style.textDecoration = 'line-through';

@@ -5,7 +5,7 @@ function WeatherData(temperature, humidity, windSpeed, temperatureIndex) {
   this.temperatureIndex = temperatureIndex;
 }
 
-WeatherData.prototype.generateRandomWeather = function() {
+WeatherData.prototype.getWeather = function() {
   let temperatures = ['Sunny', 'Cloudy', 'Rainy', 'Stormy'];
   let humidities = ['Low', 'Medium', 'High'];
   let windSpeeds = ['Calm', 'Moderate', 'Windy'];
@@ -23,9 +23,12 @@ WeatherData.prototype.generateRandomWeather = function() {
 };
 
 WeatherData.prototype.displayWeatherDetails = function() {
-  let weatherOutputElement = document.getElementById('weather-output');
-  weatherOutputElement.textContent = 'Temperature: ' + this.temperature + ', Humidity: ' + this.humidity + ', Wind Speed: ' + this.windSpeed;
+  // let weatherOutputElement = document.getElementById('weather-output');
+  // weatherOutputElement.textContent = 'Temperature: ' + this.temperature + ', Humidity: ' + this.humidity + ', Wind Speed: ' + this.windSpeed;
+ 
+  document.write ('Temperature: ' + this.temperature + ', Humidity: ' + this.humidity + ', Wind Speed: ' + this.windSpeed)
 };
+
 
 WeatherData.prototype.checkWeather = function() {
 
@@ -42,7 +45,12 @@ WeatherData.prototype.checkWeather = function() {
     wardrobeSuggestions = 'Weather is unpredictable! Bring layers for any condition.';
   }
 
-  wardrobeSuggestionsDiv.textContent = wardrobeSuggestions;
+  // wardrobeSuggestionsDiv.textContent = wardrobeSuggestions;
+  document.write (wardrobeSuggestions)
+};
+
+WeatherData.prototype.showImage = function() {
+
 
   let temperatureImages = {
     0: 'https://kidder.com/wp-content/uploads/post/2020-08-10-seattle-apartment-sales-update-dylan-simon.jpg', // Sunny
@@ -51,18 +59,17 @@ WeatherData.prototype.checkWeather = function() {
     3: 'https://cdn.geekwire.com/wp-content/uploads/2017/04/seattle-skyline-storm1.jpg' // Stormy
   };
 
-  let imageContainer = document.getElementById('image-container');
-  let temperatureImage = document.createElement('img');
-  temperatureImage.src = temperatureImages[this.temperatureIndex];
-  temperatureImage.alt = this.temperature;
-  imageContainer.appendChild(temperatureImage);
+  // let imageContainer = document.getElementById('image-container');
+  // let temperatureImage = document.createElement('img');
+  // temperatureImage.src = temperatureImages[this.temperatureIndex];
+  // temperatureImage.alt = this.temperature;
+  // imageContainer.appendChild(temperatureImage);
+  document.write(`<img src="${temperatureImages[this.temperatureIndex]}"/>`)
 };
 
 
-let fakeWeather = new WeatherData();
+let weather = new WeatherData();
 
-fakeWeather.generateRandomWeather();
+weather.getWeather();
 
-fakeWeather.displayWeatherDetails();
 
-fakeWeather.checkWeather();
