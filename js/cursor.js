@@ -1,26 +1,29 @@
+console.log("Custom cursor script is running.");
+
 // Check if we are on the open page
 if (document.getElementById('notebook')) {
-  // Add custom cursor for the notebook element on the open page
-  document.body.style.cursor = 'url("path/to/key-cursor.png"), auto';
+  console.log("On the open page");
+  // Add class to apply custom cursor styles
+  document.body.classList.add('on-open-page');
 } else if (document.getElementById('taskForm')) {
-  // Set the default cursor for the second page
-  document.body.style.cursor = 'default';
+  console.log("On the second page");
+  // Remove class to revert to default cursor styles
+  document.body.classList.remove('on-open-page');
 
-  // Function to change cursor to a pencil on list item hover
+  // Function to change cursor to a pen on list item hover
   function changeCursorToPen() {
     const listItems = document.getElementById('taskList').getElementsByTagName('li');
 
     for (const listItem of listItems) {
-      listItem.addEventListener('mouseover', function () {
-        listItem.style.cursor = 'url("path/to/pen-cursor.png"), auto';
-      });
+      listItem.classList.add('custom-cursor-pen');
 
       listItem.addEventListener('mouseout', function () {
-        listItem.style.cursor = 'default';
+        listItem.classList.remove('custom-cursor-pen');
       });
     }
   }
 
-  // Call the function to apply the pencil cursor to list items
+  // Call the function to apply the pen cursor to list items
   changeCursorToPen();
 }
+

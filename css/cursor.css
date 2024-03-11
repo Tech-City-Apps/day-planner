@@ -1,0 +1,7 @@
+body.on-open-page {
+  cursor: url('./img/key-cursor.png'), auto;
+}
+
+#taskList li.custom-cursor-pen {
+  cursor: url('./img/pen-cursor.png'), auto;
+}
