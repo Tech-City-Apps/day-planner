@@ -1,0 +1,76 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0e4d7;
+}
+
+.notebook {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  box-shadow: 0 0 8px #666;
+  position: relative;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 1s;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background-image: url('../assets/seattle-notebook.jpg'); /* Add your notebook cover image */
+  background-size: cover;
+  z-index: 2;
+}
+
+.lock {
+  width: 40px;
+  height: 60px;
+  background-image: url('lock-icon.png'); /* Add your lock icon image */
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.notebook-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.cover, .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.cover {
+  /* Your cover styling */
+  z-index: 2;
+}
+
+.content {
+  /* Style your blank page here */
+  background-color: white; /* Example: a blank page */
+  transform: rotateY(180deg); /* Flip the backside */
+}
+
+/* When notebook is flipped */
+.notebook.flipped .notebook-inner {
+  transform: rotateY(180deg);
+  
+}
+
+
+
