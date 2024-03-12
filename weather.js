@@ -1,7 +1,7 @@
-function WeatherData(temperature, humidity, windSpeed, temperatureIndex) {
+function WeatherData(temperature, sunrise, sunset, temperatureIndex) {
   this.temperature = temperature;
-  this.humidity = humidity;
-  this.windSpeed = windSpeed;
+  this.sunrise = sunrise;
+  this.sunset = sunset;
   this.temperatureIndex = temperatureIndex;
 }
 
@@ -10,51 +10,46 @@ WeatherData.prototype.getWeather = async function() {
   let url= "https://api.weatherbit.io/v2.0/current?city=lynnwood,WA&key=0d7ac0b136214e258d77b993aa6e2a80&units=I";
   let response= await fetch(url);
   let JSON= await response.json();
-  let weather=JSON.data;
+  let weather=JSON.data[0];
   console.log(weather);
   
-  let temperatures = ['Sunny', 'Cloudy', 'Rainy', 'Stormy'];
-  let humidities = ['Low', 'Medium', 'High'];
-  let windSpeeds = ['Calm', 'Moderate', 'Windy'];
-
-
-  let temperatureIndex = Math.floor(Math.random() * temperatures.length);
-  let humidityIndex = Math.floor(Math.random() * humidities.length);
-  let windSpeedIndex = Math.floor(Math.random() * windSpeeds.length);
-
 
   this.temperature = weather.temp;
-  this.humidity = humidities[humidityIndex];
-  this.windSpeed = windSpeeds[windSpeedIndex];
-  this.temperatureIndex = temperatureIndex;
+  this.sunrise = weather.sunrise;
+  this.sunset = weather.sunset;
+  this.temperatureIndex = weather.weather.description;
+
+
+  this.displayWeatherDetails();
+  // this.checkWeather();
+  this.showImage();
 };
 
 WeatherData.prototype.displayWeatherDetails = function() {
-  // let weatherOutputElement = document.getElementById('weather-output');
-  // weatherOutputElement.textContent = 'Temperature: ' + this.temperature + ', Humidity: ' + this.humidity + ', Wind Speed: ' + this.windSpeed;
+  let weatherOutputElement = document.getElementById('weather-output');
+  weatherOutputElement.textContent = 'Temperature: ' + this.temperature + ', Sunrise: ' + this.sunrise + ', Sunset: ' + this.sunset;
  
-  document.write ('Temperature: ' + this.temperature + ', Humidity: ' + this.humidity + ', Wind Speed: ' + this.windSpeed)
 };
 
 
-WeatherData.prototype.checkWeather = function() {
+// WeatherData.prototype.checkWeather = function() {
 
-  let wardrobeSuggestionsDiv = document.getElementById('wardrobe-output');
+//   let wardrobeSuggestionsDiv = document.getElementById('wardrobe-output');
 
-  let wardrobeSuggestions = '';
-  if (this.temperature === 'Rainy') {
-    wardrobeSuggestions = 'It\'s raining! Don\'t forget to bring an umbrella.';
-  } else if (this.temperature === 'Sunny') {
-    wardrobeSuggestions = 'It\'s sunny! Don\'t forget your sunglasses and sunscreen.';
-  } else if (this.temperature === 'Cloudy') {
-    wardrobeSuggestions = 'It\'s cloudy! Bring a light jacket just in case.';
-  } else {
-    wardrobeSuggestions = 'Weather is unpredictable! Bring layers for any condition.';
-  }
+//   let wardrobeSuggestions = '';
+//   if (this.temperature === 'Rainy') {
+//     wardrobeSuggestions = 'It\'s raining! Don\'t forget to bring an umbrella.';
+//   } else if (this.temperature === 'Sunny') {
+//     wardrobeSuggestions = 'It\'s sunny! Don\'t forget your sunglasses and sunscreen.';
+//   } else if (this.temperature === 'Cloudy') {
+//     wardrobeSuggestions = 'It\'s cloudy! Bring a light jacket just in case.';
+//   } else {
+//     wardrobeSuggestions = 'Weather is unpredictable! Bring layers for any condition.';
+//   }
 
-  // wardrobeSuggestionsDiv.textContent = wardrobeSuggestions;
-  document.write (wardrobeSuggestions)
-};
+//   wardrobeSuggestionsDiv.textContent = wardrobeSuggestions;
+  
+// };
 
 WeatherData.prototype.showImage = function() {
 
@@ -66,12 +61,12 @@ WeatherData.prototype.showImage = function() {
     3: 'https://cdn.geekwire.com/wp-content/uploads/2017/04/seattle-skyline-storm1.jpg' // Stormy
   };
 
-  // let imageContainer = document.getElementById('image-container');
-  // let temperatureImage = document.createElement('img');
-  // temperatureImage.src = temperatureImages[this.temperatureIndex];
-  // temperatureImage.alt = this.temperature;
-  // imageContainer.appendChild(temperatureImage);
-  document.write(`<img src="${temperatureImages[this.temperatureIndex]}"/>`);
+  let imageContainer = document.getElementById('weather-img');
+  let temperatureImage = document.createElement('img');
+  temperatureImage.src = temperatureImages[this.temperatureIndex];
+  temperatureImage.alt = this.temperature;
+  imageContainer.appendChild(temperatureImage);
+  // document.write(`<img src="${temperatureImages[this.temperatureIndex]}"/>`);
 };
 
 
