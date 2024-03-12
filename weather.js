@@ -1,4 +1,5 @@
-function WeatherData(temperature, sunrise, sunset, temperatureIndex) {
+function WeatherData(city_name, temperature, sunrise, sunset, temperatureIndex) {
+  this.cityName = city_name;
   this.temperature = temperature;
   this.sunrise = sunrise;
   this.sunset = sunset;
@@ -7,13 +8,13 @@ function WeatherData(temperature, sunrise, sunset, temperatureIndex) {
 
 
 WeatherData.prototype.getWeather = async function() {
-  let url= "https://api.weatherbit.io/v2.0/current?city=lynnwood,WA&key=0d7ac0b136214e258d77b993aa6e2a80&units=I";
+  let url= "https://api.weatherbit.io/v2.0/current?city=Seattle,WA&key=0d7ac0b136214e258d77b993aa6e2a80&units=I";
   let response= await fetch(url);
   let JSON= await response.json();
   let weather=JSON.data[0];
   console.log(weather);
   
-
+  this.cityName = weather.city_name;
   this.temperature = weather.temp;
   this.sunrise = weather.sunrise;
   this.sunset = weather.sunset;
@@ -27,7 +28,7 @@ WeatherData.prototype.getWeather = async function() {
 
 WeatherData.prototype.displayWeatherDetails = function() {
   let weatherOutputElement = document.getElementById('weather-output');
-  weatherOutputElement.textContent = 'Temperature: ' + this.temperature + ', Sunrise: ' + this.sunrise + ', Sunset: ' + this.sunset;
+  weatherOutputElement.textContent = 'City name:' + this.cityName + ',Temperature:' + this.temperature + ', Sunrise: ' + this.sunrise + ', Sunset: ' + this.sunset;
  
 };
 
