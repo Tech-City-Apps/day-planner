@@ -5,7 +5,14 @@ function WeatherData(temperature, humidity, windSpeed, temperatureIndex) {
   this.temperatureIndex = temperatureIndex;
 }
 
-WeatherData.prototype.getWeather = function() {
+
+WeatherData.prototype.getWeather = async function() {
+  let url= "https://api.weatherbit.io/v2.0/current?city=lynnwood,WA&key=0d7ac0b136214e258d77b993aa6e2a80&units=I";
+  let response= await fetch(url);
+  let JSON= await response.json();
+  let weather=JSON.data;
+  console.log(weather);
+  
   let temperatures = ['Sunny', 'Cloudy', 'Rainy', 'Stormy'];
   let humidities = ['Low', 'Medium', 'High'];
   let windSpeeds = ['Calm', 'Moderate', 'Windy'];
@@ -16,7 +23,7 @@ WeatherData.prototype.getWeather = function() {
   let windSpeedIndex = Math.floor(Math.random() * windSpeeds.length);
 
 
-  this.temperature = temperatures[temperatureIndex];
+  this.temperature = weather.temp;
   this.humidity = humidities[humidityIndex];
   this.windSpeed = windSpeeds[windSpeedIndex];
   this.temperatureIndex = temperatureIndex;
@@ -64,7 +71,7 @@ WeatherData.prototype.showImage = function() {
   // temperatureImage.src = temperatureImages[this.temperatureIndex];
   // temperatureImage.alt = this.temperature;
   // imageContainer.appendChild(temperatureImage);
-  document.write(`<img src="${temperatureImages[this.temperatureIndex]}"/>`)
+  document.write(`<img src="${temperatureImages[this.temperatureIndex]}"/>`);
 };
 
 
