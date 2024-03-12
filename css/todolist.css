@@ -106,7 +106,7 @@ img {
   position: absolute;
   top: 29%;
   /* Adjust this value as needed to vertically center */
-  left: 50%;
+  left: 45%;
   /* Adjust this value as needed to horizontally center */
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.1);
