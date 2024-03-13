@@ -1,3 +1,9 @@
+body {
+  background-image: url(https://www.katebackdrop.com/cdn/shop/articles/Photo_by_Thom_Milkovic_on_Unsplash.jpg?v=1674031429);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .layout {
   margin: 0 auto;
   width: 960px;
