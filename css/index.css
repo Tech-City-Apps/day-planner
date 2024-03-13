@@ -1,25 +1,25 @@
 body, html {
-  min-height: 100vh; /* Ensure at least full viewport height */
+  min-height: 100vh; 
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
   background-image: url('../assets/sunrisemtr.jpg');
-  background-size: cover; /* Cover the entire screen */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-repeat: no-repeat; 
   font-family: 'Lobster', sans-serif;
 }
 
 
 main {
-  flex: 1; /* Allows the main content to grow and fill available space */
+  flex: 1; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Use this to control the width of your content */
+  width: 100%; 
 }
 
 h1 {
@@ -27,7 +27,7 @@ h1 {
   font-weight: bold;
   color: #00377A;
   text-align: center;
-  margin: 20px 0 40px; /* Adjust as needed */
+  margin: 20px 0 40px; 
   font-size: 2.5em;
 }
 
@@ -48,7 +48,7 @@ h1 {
   transition: transform 1s;
 }
 body {
-  padding-bottom: 60px; /* Ensure body content doesn't get hidden behind the fixed footer */
+  padding-bottom: 60px; 
   width: 100%;
 }
 
@@ -67,7 +67,7 @@ body {
   height: 100%;
   position: absolute;
   left: 0;
-  background-image: url('../assets/techcityappbooknobg.png'); /* Add your notebook cover image */
+  background-image: url('../assets/techcityappbooknobg.png');
   background-size: cover;
   z-index: 2;
 }
@@ -75,7 +75,7 @@ body {
 .lock {
   width: 40px;
   height: 60px;
-  background-image: url('lock-icon.png'); /* Add your lock icon image */
+  background-image: url('lock-icon.png'); 
   background-size: cover;
   position: absolute;
   top: 50%;
@@ -101,17 +101,17 @@ body {
 }
 
 .cover {
-  /* Your cover styling */
+  
   z-index: 2;
 }
 
 .content {
-  /* Style your blank page here */
-  background-color: white; /* Example: a blank page */
-  transform: rotateY(180deg); /* Flip the backside */
+
+  background-color: white;
+  transform: rotateY(180deg); 
 }
 
-/* When notebook is flipped */
+
 .notebook.flipped .notebook-inner {
   transform: rotateY(180deg);
   
