@@ -47,23 +47,21 @@ WeatherData.prototype.showImage = function() {
   // Adjust the method to display images based on the temperature
   let imageContainer = document.getElementById('weather-img');
   
-  // Clear previous images
-  while(imageContainer.firstChild) {
-    imageContainer.removeChild(imageContainer.firstChild);
-  }
+
 
   let temperatureImage = document.createElement('img');
   
+  // Define the URL for the background image based on temperature
+  let backgroundImageURL;
   if (this.temperature < 65) {
-    // Provide an image URL for cooler weather suggestions
-    temperatureImage.src = 'URL_FOR_COOL_WEATHER_IMAGE';
+    backgroundImageURL = 'https://wallpapers.com/images/hd/cloudy-seattle-4k-rd9wjx3pse7qw05i.jpg';
   } else {
-    // Provide an image URL for warmer weather suggestions
-    temperatureImage.src = 'URL_FOR_WARM_WEATHER_IMAGE';
+    backgroundImageURL = 'https://www.katebackdrop.com/cdn/shop/articles/Photo_by_Thom_Milkovic_on_Unsplash.jpg?v=1674031429';
   }
   
-  temperatureImage.alt = "Weather recommendation image";
-  imageContainer.appendChild(temperatureImage);
+  // Set the background image using CSS
+  imageContainer.style.backgroundImage = "url('" + backgroundImageURL + "')";
+  console.log(backgroundImageURL);
 };
 
 let weather = new WeatherData();
