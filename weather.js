@@ -26,7 +26,7 @@ WeatherData.prototype.getWeather = async function() {
 
 WeatherData.prototype.displayWeatherDetails = function() {
   let weatherOutputElement = document.getElementById('weather-output');
-  weatherOutputElement.textContent = 'City:' + this.cityName + ', Temperature:' + this.temperature + '°, Sunrise: ' + this.sunrise + ', Sunset: ' + this.sunset;
+  weatherOutputElement.textContent = 'City:' + this.cityName + ' Temperature:' + this.temperature + '° Sunrise: ' + this.sunrise + ' Sunset: ' + this.sunset;
 };
 
 WeatherData.prototype.checkWeather = function() {
