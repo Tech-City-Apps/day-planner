@@ -7,7 +7,7 @@ function WeatherData(city_name, temperature, sunrise, sunset, temperatureIndex) 
 }
 
 WeatherData.prototype.getWeather = async function() {
-  let url= "https://api.weatherbit.io/v2.0/current?city=Phoenix,AZ&key=0d7ac0b136214e258d77b993aa6e2a80&units=I";
+  let url= "https://api.weatherbit.io/v2.0/current?city=Miami,FL&key=0d7ac0b136214e258d77b993aa6e2a80&units=I";
   let response= await fetch(url);
   let JSON= await response.json();
   let weather=JSON.data[0];
@@ -26,11 +26,16 @@ WeatherData.prototype.getWeather = async function() {
 
 WeatherData.prototype.displayWeatherDetails = function() {
   let weatherOutputElement = document.getElementById('weather-output');
-  weatherOutputElement.textContent = '\nCity:' + this.cityName + 
-  '\nTemperature:' + this.temperature + '°'+ 
-  '\nSunrise: ' + this.sunrise + 
-  '\nSunset: ' + this.sunset;
+  weatherOutputElement.textContent = 
+    'City: ' + this.cityName + '\n' + 
+    'Temperature: ' + this.temperature + '°\n' + 
+    'Sunrise: ' + this.sunrise + '\n' + 
+    'Sunset: ' + this.sunset;
+
+  // Apply CSS to display new lines
+  weatherOutputElement.style.whiteSpace = 'pre-line';
 };
+
 
 WeatherData.prototype.checkWeather = function() {
   let wardrobeSuggestionsDiv = document.getElementById('wardrobe-output');
