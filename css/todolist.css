@@ -18,13 +18,10 @@ body {
  
   width: 1000px;
   height: 768px;
-  display: grid;
-  grid:
-    "dlist notebook plugin" 1fr
-    ". . suggestions" 1fr
-    ". . ." 1fr
-    / 1fr 1fr 1fr;
-  gap: 10px;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr; 
+  gap: 0px 0px; 
 }
 
 h1 {
@@ -33,20 +30,19 @@ h1 {
 }
 
 .header {
+  grid-area: 1 / 1 / 2 / 4;
+  gap: 0px 0px; 
   margin: 20 auto;
   text-align: center;
   font-size:50px ;
 }
 
-.container { 
-  display: grid;
-  grid-template-columns: repeat(3,2fr);
-  grid-gap:20px;
-}
 
 .dlist {
-  padding-left:  70px;
-  padding-bottom: 60px;
+  margin-top: -85px;
+  grid-area: 2/ 1 / 3 / 2;
+  /* padding-left:  70px;
+  padding-bottom: 60px; */
   justify-content: center;
   align-items: center;
   width: 200px;
@@ -62,9 +58,10 @@ h1 {
 }
 
 .notebook { 
+  grid-area: 1 / 2 / 4 / 2;
   padding: 0px;
   width: 450px;
-  height: auto;
+  /* height: auto; */
   overflow-y: auto;
   font-family: 'Indie Flower', cursive;
   /* Other styles */
@@ -86,9 +83,13 @@ h2 {
   }
 
 .plugin {
+  grid-area: 2 / 3 / 3 / 4;
   width: 200px;
+  margin-top: -85px;
+  margin-left: 60px;
+  padding: 10px;
   /* Adjust width as needed */
-  height: 200px;
+  height: auto;
   /* Adjust height as needed */
   color: #c9c4c4;
   border-radius: 8px;
@@ -96,17 +97,33 @@ h2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   /* Box shadow with opacity */
   background-color: rgb(19, 18, 18, .55);
-  padding:10px;
-  grid-column: 3; /* Place this item in the third column */
-    grid-row: 1; 
+  
+  
 }
 
+
 .suggestions {
-  grid-column: 3; /* Place this item in the third column */
-    grid-row: 2; 
+  grid-area: 3 / 3 / 4 / 4;
+  margin-left: -10px;
   width: 200px;
   /* Adjust width as needed */
-  height: 200px;
+  height: auto;
+  /* Adjust height as needed */
+  color: #c9c4c4;
+  border-radius: 8px;
+  /* Border radius for rounded corners, adjust as needed */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: rgb(19, 18, 18, .55); */
+  text-align: left;
+  padding:10px;
+  /* Box shadow with opacity */
+}
+
+.weather-details {
+  /* grid-area: 4 / 4 / 5 / 5; */
+  width: 200px;
+  /* Adjust width as needed */
+  height: auto;
   /* Adjust height as needed */
   color: #c9c4c4;
   border-radius: 8px;
@@ -117,6 +134,7 @@ h2 {
   padding:10px;
   /* Box shadow with opacity */
 }
+
 
 h2 {
     font-weight: bolder;
@@ -139,9 +157,9 @@ h2 {
 
 .overlay-text {
   position: absolute;
-  top: 20%;
+  top: 25%;
   /* Adjust this value as needed to vertically center */
-  left: 45%;
+  left: 48%;
   /* Adjust this value as needed to horizontally center */
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.1);
@@ -151,6 +169,7 @@ h2 {
 }
 
 .footer {
+  grid-area: 4 / 1 / 5 / 4;
   margin: 20px auto;
   display: flex;
   flex-direction: row;
