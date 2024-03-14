@@ -4,26 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <title>To-Do List</title>
+  <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/todolist.css">
   <link rel="stylesheet" href="./css/cursor.css">
+  
   <script src="weather.js"></script>
   <script src="./js/todolist.js"></script>
   <script src="./js/cursor.js"></script>
 </head>
 
 <body>
-  <div id="weather-img">
-    <script>weather.showImage();</script>
   
-
-  <div class="container">
+  <div id="weather-img">
+    
     <header class="header">
       <h1>Day Planner</h1>
     </header>
+  <div class="container">
+    
+  </div>
+
     <div class="layout">
       <div class="dlist">
         <form id="taskForm"> 
-          <h2>Add task!</h2>
+          <h2>Add a task!</h2>
           <input type="text" id="title" placeholder="Title" required>
           <input type="text" id="description" placeholder="Description">
           <input type="date" id="dueDate" required>
@@ -32,6 +36,7 @@
           <button type="button" id="undoLastEntryButton">Undo Last Entry</button>
         </form>
       </div>
+      
       <div class="notebook">
         <div class="image-container">
           <img src="./img/notebook.jpg" alt="Background Image">
@@ -51,27 +56,24 @@
             </script>
           </p>
         </div>
-
+         </div>
+          
+          <div class="suggestions">
+            <div id="wardrobe-suggestions"> 
+              <h2>Wardrobe Suggestions</h2>
+              <p id="wardrobe-output"></p>
+            </div>
+          </div>
         
-         <div id="wardrobe-suggestions"> 
-          <h2>Wardrobe Suggestions</h2>
-          <p id="wardrobe-output">
-            <script>
-              weather.checkWeather();
-            </script>
-          </p>
-        </div>
        
 
 
-
-      </div>
-
-      <div class="footer" style="background-color: rgba(0, 0, 0, 0.7);"> 
-        <p style="color: white;">&copy; 2024 Tech City Apps. All rights reserved.</p>
-      </div>      
     </div>
+  
+  <div class="footer">
+    <p>&copy; 2024 Tech City Apps. All rights reserved.</p>
   </div>
-  </div>
+</div>
 </body>
+</div>
 </html>
